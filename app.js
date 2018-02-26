@@ -11,10 +11,10 @@ expressCli.use(bodyParser.urlencoded({
   extended: true
 }));
 
-expressCli.get('/match', function(req, res) {
+expressCli.post('/match', function(req, res) {
   console.log("Req on /match");
   if (req.body.type = "url_verification") {
-    console.log("Got challenge request");
+    console.log("Got challenge request: " + req.body.challenge);
     return res.status(200).send(req.body.challenge);
   }
   if (req.body.text = "we shouldn't have") {
